@@ -16,23 +16,26 @@ public class MainInterativa {
 		Scanner scanf = new Scanner(System.in);
 
 		JOptionPane.showMessageDialog(null,"COMANDOS:\n"
-				+ "'criaJogador'- Cria um jogador passando seus dados.\n"
-				+ "'criaTreinador' -  Cria treinador com os dados passados.\n"
-				+ "'criaClube' - Cria um clube com os dados passados.\n"
-				+ " 'criaFederacao' - Cria federação com os dados passados\n "
-				+ " 'deletaJogador' - Deleta jogador pelo seu nome.\n"
-				+ " 'deletaClube' - Deleta um clube pelo seu nome.\n"
-				+ " 'deletaTreinador' - Deleta treinador pelo seu nome\n "
-				+ " 'deletaFederacao' - Deleta federação pelo seu nome.\n"
-				+ " 'atualizaJogador' - Atualiza alguns dados do jogador passado.\n"
-				+ " 'atualizaTreinador' - Atualiza o treinador seguindo os passos dados.\n"
-				+ " 'atualizaClube' - Atualiza um time com os dados pedidos.\n "
-				+ " 'atualizaFederacao' - Atualiza uma federação com os dados pedidos.\n  "
-				+ " '' - Busca jogador pelo seu nome.\n"
-				+ " 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
-				+ " 'buscaClube' - Busca clube pelo nome.\n  "
-				+ " 'buscaFederacao' - Busca federação pelo seu nome.\n "
-				+ " 'comandos' - Mostra novamente os comandos.\n ");
+				+ " 1 / 'criaJogador'- Cria um jogador passando seus dados.\n"
+				+ " 2 / 'criaTreinador' -  Cria treinador com os dados passados.\n"
+				+ " 3 / 'criaClube' - Cria um clube com os dados passados.\n"
+				+ " 4 / 'deletaJogador' - Deleta jogador pelo seu nome.\n"
+				+ " 5 / 'criaFederacao ' - Cria uma federaçãao pelo nome.\n"
+				+ " 6 / 'deletaClube' - Deleta um clube pelo seu nome.\n"
+				+ " 7 / 'deletaTreinador' - Deleta treinador pelo seu nome\n "
+				+ " 8 / 'deletaFederacao' - Deleta federação pelo seu nome.\n"
+				+ " 9 / 'atualizaJogador' - Atualiza alguns dados do jogador passado.\n"
+				+ " 10 / 'atualizaTreinador' - Atualiza o treinador seguindo os passos dados.\n"
+				+ " 11 / 'atualizaClube' - Atualiza um time com os dados pedidos.\n "
+				+ " 12 / 'atualizaFederacao' - Atualiza uma federação com os dados pedidos.\n  "
+				+ " 13 / 'buscaJogador' - Busca jogador pelo seu nome.\n"
+				+ " 14 / 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
+				+ " 15 / 'buscaClube' - Busca clube pelo nome.\n  "
+				+ " 16 /'buscaFederacao' - Busca federação pelo seu nome.\n "
+				+ " 17 / 'contrataJogador' - Realiza a contratação de um jogador previamente criado.\n"	
+				+ " 18 / 'demiteJogador' - Faz a demissao de um jogador previamente contratado.\n"
+				+ " 19 / 'transfereJogador' - Faz a transferencia de um time pra outro.\n"
+				+ " 20 / 'comandos' - Mostra novamente os comandos.\n ");
 		
 		System.out.println("INFORME UM COMANDO VÁLIDO.");
 		String comando = scanf.nextLine();
@@ -41,33 +44,33 @@ public class MainInterativa {
 			switch(comando) {
 			
 			
-				case "criaJogador":
+				case "1":
 					controle.criarJogador();
 					comando = "";
 					break;
 					
-				case "criaTreinador":
+				case "2":
 					controle.criaTreinador();
 					comando = "";
 					break;
 					
-				case "criaClube":
+				case "3":
 					controle.criaTime();
 					comando = "";
 					break;
 					
-				case "criaFederacao":
+				case "5":
 					controle.criarFederacao();
 					comando = "";
 					break;
 					
-				case "deletaJogador":
+				case "4":
 					controle.deletaJogador();
 					comando = "";
 					break;
 					
 				
-				case "deletaClube":
+				case "6":
 					System.out.println("Informe o nome do clube a ser deletado:");
 					String nomeClubeDeleta = scanf.nextLine();
 					
@@ -76,14 +79,14 @@ public class MainInterativa {
 					break;
 					
 				
-				case "deletaTreinador":
+				case "7":
 					System.out.println("Informe o nome do treinador a ser removido:");
 					String nomeTreinador = scanf.nextLine();
 					controle.deletaTreinador(nomeTreinador);
 					comando = "";
 					break;
 					
-				case "deletaFederacao":
+				case "8":
 					System.out.println("Informe o nome da federação a ser removida:");
 					String nomeFederacao = scanf.nextLine();
 					controle.deletaFederacao(nomeFederacao);
@@ -91,7 +94,7 @@ public class MainInterativa {
 					break;
 					
 				
-				case "atualizaJogador":
+				case "9":
 					scanf.nextLine();
 					System.out.println("Informe o nome do jogador a ser atualizado:");
 					String nomeJogadorAtualiza = scanf.nextLine();
@@ -101,7 +104,7 @@ public class MainInterativa {
 					break;
 			
 				
-				case "atualizaTreinador":
+				case "10":
 					System.out.println("Informe o nome do treinador a ser atualizado:");
 					String nomeTreinadorAtualiza = scanf.nextLine();
 					scanf.nextLine();
@@ -110,7 +113,7 @@ public class MainInterativa {
 					break;
 				
 					
-				case "atualizaClube":
+				case "11":
 					System.out.println("Informe o nome do clube a ser atualizado");
 					String nomeClubeAtualizar = scanf.nextLine();
 					scanf.nextLine();
@@ -119,7 +122,7 @@ public class MainInterativa {
 					break;
 					
 				
-				case "atualizaFederacao":
+				case "12":
 					System.out.println("Informe o nome da federação a ser  atualizada:");
 					String nomeFederacaoAtualiza = scanf.nextLine();
 					scanf.nextLine();
@@ -128,7 +131,7 @@ public class MainInterativa {
 					break;
 					
 				
-				case "buscaJogador":
+				case "13":
 					System.out.println("Nome do jogador a ser procurado:");
 					String nomeJogador = scanf.nextLine();
 					scanf.nextLine();
@@ -137,7 +140,7 @@ public class MainInterativa {
 					break;
 					
 			
-				case "buscaTreinador":
+				case "14":
 					System.out.println("Informe o nome do treinador a ser procurado.");
 					String treinadorBusca = scanf.nextLine();
 					controle.buscaTreinador(treinadorBusca);
@@ -145,7 +148,7 @@ public class MainInterativa {
 					break;
 					
 				
-				case "buscaClube":
+				case "15":
 					String nomeClubeBuscar;
 					System.out.println("Informe o nome do clube a ser procurado");
 					nomeClubeBuscar = scanf.nextLine();
@@ -155,7 +158,7 @@ public class MainInterativa {
 					break;
 					
 					
-				case "buscaFederacao":
+				case "16":
 					String nomeFederacaoBuscar;
 					System.out.println("Informe o nome da federação a ser procurada");
 					
@@ -164,7 +167,7 @@ public class MainInterativa {
 					comando = "";
 					break;
 					
-				case "contrataJogador":
+				case "17":
 					System.out.println("Nome do clube para adicionar o jogador");
 					String nomeClubeAdcJogador = scanf.nextLine();
 					scanf.nextLine();
@@ -190,7 +193,7 @@ public class MainInterativa {
 					break;
 				
 					
-				case "demiteJogador":
+				case "18":
 					System.out.println("Nome do clube para demitir o jogador");
 					String nomeClubeRemoveJogador = scanf.nextLine();
 					scanf.nextLine();
@@ -237,28 +240,29 @@ public class MainInterativa {
 					
 					comando = "";
 					break;
-				case "comandos":
+					
+				case "20":
 					JOptionPane.showMessageDialog(null,"COMANDOS:\n"
-							+ "'criaJogador'- Cria um jogador passando seus dados.\n"
-							+ "'criaTreinador' -  Cria treinador com os dados passados.\n"
-							+ "'criaClube' - Cria um clube com os dados passados.\n"
-							+ " 'criaFederacao' - Cria federação com os dados passados\n "
-							+ " 'deletaJogador' - Deleta jogador pelo seu nome.\n"
-							+ " 'deletaClube' - Deleta um clube pelo seu nome.\n"
-							+ " 'deletaTreinador' - Deleta treinador pelo seu nome\n "
-							+ " 'deletaFederacao' - Deleta federação pelo seu nome.\n"
-							+ " 'atualizaJogador' - Atualiza alguns dados do jogador passado.\n"
-							+ " 'atualizaTreinador' - Atualiza o treinador seguindo os passos dados.\n"
-							+ " 'atualizaClube' - Atualiza um time com os dados pedidos.\n "
-							+ " 'atualizaFederacao' - Atualiza uma federação com os dados pedidos.\n  "
-							+ " 'buscaJogador' - Busca jogador pelo seu nome.\n"
-							+ " 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
-							+ " 'buscaClube' - Busca clube pelo nome.\n  "
-							+" ' contrataJogador' - Contrata Jogador."
-							+ "  demiteJogador' - Demite jogador'"
-							+ " 'transfereJogador' - Transfere um jogador de um time para outro."
-							+ " 'buscaFederacao' - Busca federação pelo seu nome.\n "
-							+ " 'comandos' - Mostra novamente os comandos.\n ");
+							+ " 1 / 'criaJogador'- Cria um jogador passando seus dados.\n"
+							+ " 2 / 'criaTreinador' -  Cria treinador com os dados passados.\n"
+							+ " 3 / 'criaClube' - Cria um clube com os dados passados.\n"
+							+ " 4 / 'deletaJogador' - Deleta jogador pelo seu nome.\n"
+							+ " 5 / 'criaFederacao ' - Cria uma federaçãao pelo nome.\n"
+							+ " 6 / 'deletaClube' - Deleta um clube pelo seu nome.\n"
+							+ " 7 / 'deletaTreinador' - Deleta treinador pelo seu nome\n "
+							+ " 8 / 'deletaFederacao' - Deleta federação pelo seu nome.\n"
+							+ " 9 / 'atualizaJogador' - Atualiza alguns dados do jogador passado.\n"
+							+ " 10 / 'atualizaTreinador' - Atualiza o treinador seguindo os passos dados.\n"
+							+ " 11 / 'atualizaClube' - Atualiza um time com os dados pedidos.\n "
+							+ " 12 / 'atualizaFederacao' - Atualiza uma federação com os dados pedidos.\n  "
+							+ " 13 / 'buscaJogador' - Busca jogador pelo seu nome.\n"
+							+ " 14 / 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
+							+ " 15 / 'buscaClube' - Busca clube pelo nome.\n  "
+							+ " 16 /'buscaFederacao' - Busca federação pelo seu nome.\n "
+							+ " 17 / 'contrataJogador' - Realiza a contratação de um jogador previamente criado.\n"	
+							+ " 18 / 'demiteJogador' - Faz a demissao de um jogador previamente contratado.\n"
+							+ " 19 / 'transfereJogador' - Faz a transferencia de um time pra outro.\n"
+							+ " 20 / 'comandos' - Mostra novamente os comandos.\n ");
 					comando = "";
 					break;
 					

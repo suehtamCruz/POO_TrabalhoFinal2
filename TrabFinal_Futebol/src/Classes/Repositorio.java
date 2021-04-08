@@ -347,12 +347,12 @@ public class Repositorio {
 			}
 		}
 		if(clubeRemoveJogador == null) {
-			System.out.println("Clube não encontrado!");
+//			System.out.println("Clube não encontrado!");
 			return false;
 		}
 		Jogador jogadorRemove = clubeRemoveJogador.buscaJogador(nomeJogador);
 		if(jogadorRemove == null) {
-			System.out.println("Jogador não encontrado no time " + clubeRemoveJogador.getNome() + ".");
+//			System.out.println("Jogador não encontrado no time " + clubeRemoveJogador.getNome() + ".");
 			return false;
 		}
 		boolean removed = clubeRemoveJogador.demiteJogador(jogadorRemove.getNome());
