@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import Controllers.Controller;
 import Exceptions.ArgumentoInvalidoException;
 import Exceptions.ElementoRepetidoException;
+import View.Viewer;
 
 public class MainInterativa {
 
@@ -14,7 +15,8 @@ public class MainInterativa {
 		
 		Controller controle = new Controller();
 		Scanner scanf = new Scanner(System.in);
-
+		Viewer visao = new Viewer();
+		
 		JOptionPane.showMessageDialog(null,"COMANDOS:\n"
 				+ " 1 / 'criaJogador'- Cria um jogador passando seus dados.\n"
 				+ " 2 / 'criaTreinador' -  Cria treinador com os dados passados.\n"
@@ -31,7 +33,7 @@ public class MainInterativa {
 				+ " 13 / 'buscaJogador' - Busca jogador pelo seu nome.\n"
 				+ " 14 / 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
 				+ " 15 / 'buscaClube' - Busca clube pelo nome.\n  "
-				+ " 16 /'buscaFederacao' - Busca federação pelo seu nome.\n "
+				+ " 16 / 'buscaFederacao' - Busca federação pelo seu nome.\n "
 				+ " 17 / 'contrataJogador' - Realiza a contratação de um jogador previamente criado.\n"	
 				+ " 18 / 'demiteJogador' - Faz a demissao de um jogador previamente contratado.\n"
 				+ " 19 / 'transfereJogador' - Faz a transferencia de um time pra outro.\n"
@@ -132,41 +134,123 @@ public class MainInterativa {
 					
 				
 				case "13":
-					System.out.println("Nome do jogador a ser procurado:");
-					String nomeJogador = scanf.nextLine();
 					scanf.nextLine();
-					controle.buscaJogador(nomeJogador);
-					comando = "";
+					int opcao;
+					System.out.println("Deseja buscar por nome ou ver todos os jogadores cadastrados?");
+					System.out.println("1 - por nome, 2 - Geral");
+					opcao=scanf.nextInt();
+					scanf.nextLine();
+					switch (opcao) {
+					case 1:
+						System.out.println("Nome do jogador a ser procurado:");
+						String nomeJogador = scanf.nextLine();
+						scanf.nextLine();
+						controle.buscaJogador(nomeJogador);
+						scanf.nextLine();
+						comando = "";
+						break;
+					
+					case 2:
+						visao.mostraJogadores();
+						comando = "";
+						scanf.nextLine();
+						break;
+					default:
+						comando = "";
+						break;
+					}
 					break;
 					
 			
 				case "14":
-					System.out.println("Informe o nome do treinador a ser procurado.");
-					String treinadorBusca = scanf.nextLine();
-					controle.buscaTreinador(treinadorBusca);
+					scanf.nextLine();
+					int opcao1;
+					System.out.println("Deseja buscar por nome ou ver todos os treinadores cadastrados?");
+					System.out.println("1 - por nome, 2 - Geral");
+					opcao1=scanf.nextInt();
+					scanf.nextLine();
+					switch (opcao1) {
+					case 1:
+						System.out.println("Informe o nome do treinador a ser procurado.");
+						String treinadorBusca = scanf.nextLine();
+						controle.buscaTreinador(treinadorBusca);
+						comando = "";
+						break;
+					
+					case 2:
+						visao.mostraTreinadores();
+						scanf.nextLine();
+						comando = "";
+						break;
+					default:
+						
+						break;
+					}
+					
 					comando = "";
 					break;
 					
 				
 				case "15":
-					String nomeClubeBuscar;
-					System.out.println("Informe o nome do clube a ser procurado");
-					nomeClubeBuscar = scanf.nextLine();
 					scanf.nextLine();
-					controle.buscaClube(nomeClubeBuscar);
-					comando = "";
+					int opcao2;
+					System.out.println("Deseja buscar por nome ou ver todos os clubes cadastrados?");
+					System.out.println("1 - por nome, 2 - Geral");
+					opcao2=scanf.nextInt();
+					scanf.nextLine();
+					switch (opcao2) {
+					case 1:
+						String nomeClubeBuscar;
+						System.out.println("Informe o nome do clube a ser procurado");
+						nomeClubeBuscar = scanf.nextLine();
+						scanf.nextLine();
+						controle.buscaClube(nomeClubeBuscar);
+						scanf.nextLine();
+						comando = "";
+						break;
+					
+					case 2:
+						visao.mostraClubes();
+						scanf.nextLine();
+						comando = "";
+						break;
+					default:
+						comando = "";	
+						break;
+					}
+					
 					break;
 					
 					
 				case "16":
-					String nomeFederacaoBuscar;
-					System.out.println("Informe o nome da federação a ser procurada");
+					scanf.nextLine();
+					int opcao3;
+					System.out.println("Deseja buscar por nome ou ver todos as federações cadastrados?");
+					System.out.println("1 - por nome, 2 - Geral");
+					opcao3=scanf.nextInt();
+					scanf.nextLine();
+					switch (opcao3) {
+					case 1:
+						String nomeFederacaoBuscar;
+						System.out.println("Informe o nome da federação a ser procurada");
+						
+						nomeFederacaoBuscar = scanf.nextLine();
+						controle.buscaFederacao(nomeFederacaoBuscar);
+						scanf.nextLine();
+						comando = "";
+						break;
 					
-					nomeFederacaoBuscar = scanf.nextLine();
-					controle.buscaFederacao(nomeFederacaoBuscar);
-					comando = "";
+					case 2:
+						visao.mostraFederacoes();
+						scanf.nextLine();
+						comando = "";
+						break;
+					default:
+						comando = "";
+						break;
+					}
 					break;
-					
+						
 				case "17":
 					System.out.println("Nome do clube para adicionar o jogador");
 					String nomeClubeAdcJogador = scanf.nextLine();
@@ -191,7 +275,6 @@ public class MainInterativa {
 					jogadorParaAdicionar.setTime(clube);
 					comando = "";
 					break;
-				
 					
 				case "18":
 					System.out.println("Nome do clube para demitir o jogador");
@@ -224,7 +307,7 @@ public class MainInterativa {
 					comando ="";
 					break;
 					
-				case "transfereJogador":
+				case "19":
 					scanf.nextLine();
 					System.out.println("Nome do time que vende");
 					String timeVende = scanf.nextLine();
@@ -258,7 +341,7 @@ public class MainInterativa {
 							+ " 13 / 'buscaJogador' - Busca jogador pelo seu nome.\n"
 							+ " 14 / 'buscaTreinador' - Busca Treinador pelo seu nome.\n"
 							+ " 15 / 'buscaClube' - Busca clube pelo nome.\n  "
-							+ " 16 /'buscaFederacao' - Busca federação pelo seu nome.\n "
+							+ " 16 / 'buscaFederacao' - Busca federação pelo seu nome.\n "
 							+ " 17 / 'contrataJogador' - Realiza a contratação de um jogador previamente criado.\n"	
 							+ " 18 / 'demiteJogador' - Faz a demissao de um jogador previamente contratado.\n"
 							+ " 19 / 'transfereJogador' - Faz a transferencia de um time pra outro.\n"
