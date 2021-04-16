@@ -1,7 +1,7 @@
 package Classes;
 
 import Exceptions.ArgumentoInvalidoException;
-
+//teste
 public class Jogador extends Pessoa{
 	
 	private String posicao;
@@ -41,20 +41,20 @@ public class Jogador extends Pessoa{
 	@Override
 	/**
 	 * @param valor Valor de aumento no salario. 
-	 * Aumenta o salário caso o valor passado como parâmetro seja maior que zero.
+	 * Aumenta o salÃ¡rio caso o valor passado como parÃ¢metro seja maior que zero.
 	 */
 	public void aumentaSalario(double valor) {
 		if(valor > 0) {
 			this.Salario += valor;
 		}else {
-			System.out.println("INFORME UM AUMENTO VÁLIDO!");
+			System.out.println("INFORME UM AUMENTO VÃLIDO!");
 		}
 	}
 	
 	@Override
 	/**
 	 * @param valor Valor a ser diminuido no salario. 
-	 * Dimunui o salário caso o salario atual menos o desconto seja maior ou igual a 0, caso seja menor zera o salário. 
+	 * Dimunui o salÃ¡rio caso o salario atual menos o desconto seja maior ou igual a 0, caso seja menor zera o salÃ¡rio. 
 	 */
 	public void diminuiSalario(double valor) {
 		if(this.Salario - valor >= 0) {
@@ -73,16 +73,16 @@ public class Jogador extends Pessoa{
 			this.numeroCamisa = numero;
 			return;
 		}else {	
-			throw new ArgumentoInvalidoException("NUMERO DE CAMISA INVÁLIDO!");
+			throw new ArgumentoInvalidoException("NUMERO DE CAMISA INVÃLIDO!");
 		}
 	}
 	/**
-	 * @apiNote Método que mostra o jogador, todos os seus atributos.
+	 * @apiNote MÃ©todo que mostra o jogador, todos os seus atributos.
 	 */
 	
 	public void show() {
-		System.out.println("Nome : " + getNome() + ", idade: " + getIdade() +", time: " + (clube == null ? "sem clube" : getTime()) + ", salário: "+ getSalario() +
-							", posição: " + getPosicao() + ", numero da camisa: " + getNumero());
+		System.out.println("Nome : " + getNome() + ", idade: " + getIdade() +", time: " + (clube == null ? "sem clube" : getTime()) + ", salÃ¡rio: "+ getSalario() +
+							", posiÃ§Ã£o: " + getPosicao() + ", numero da camisa: " + getNumero());
 	}
 	
 }
